@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <title>Genera tu perfil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+</head>
+<body>
+    <div id="app">
+        <header class="navbar">
+            <h1 class="brand">Generador de Perfiles</h1>
+            <link rel="stylesheet" href="css/estilos.css">
+            <nav id="main-nav">
+                <a href="#/crear" class="nav-link active">Crear Perfil</a>
+                <a href="#/galeria" class="nav-link">Galería</a>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">🌙</button>
+            </nav>
+        </header>
+        <main id="router-view">
+            <div id="view-create" class="view-module active">
+                <div class="view-create-profile">
+                    <section class="form-container">
+                        <h2>Diseña tu perfil</h2>
+                        <form id="profile-form">
+                            <div class="input-group">
+                                <label for="input-badge">Insignia</label>
+                                <select id="input-badge">
+                                    <option value="">Ninguna</option>
+                                    <option value="VIP">⭐ VIP</option>
+                                    <option value="Frecuente">✈️ Viajero Frecuente</option>
+                                    <option value="Nuevo">🆕 Nuevo</option>
+                                    <option value="Spotter">📸 Spotter</option>
+                                    <option value="Dev">🐈‍⬛ GitHub</option>
+                                    <option value="Bluesky">🦋 BlueSky</option>
+                                </select>
+                            </div>
+                            <div class="api-search-block">
+                                <label for="github-search">Importar desde GitHub</label>
+                                <div class="input-group-row">
+                                    <input type="text" id="github-search" placeholder="Usuario (Ej. SioliokooDev)">
+                                    <button type="button" id="btn-fetch" class="btn-secondary">Buscar</button>
+                                </div>
+                                <span id="api-status" class="status-msg"></span>
+                            </div>
+                            <div class="api-search-block">
+                                <label>Generar perfil aleatorio</label>
+                                <button type="button" id="btn-random" class="btn-secondary">🎲 Generar aleatorio</button>
+                                <span id="random-status" class="status-msg"></span>
+                            </div>
+                            <hr>
+                            <div class="api-search-block">
+                                <label for="bsky-search">Importar desde Bluesky</label>
+                                <div class="input-group-row">
+                                    <input type="text" id="bsky-search" placeholder="Usuario (Ej. bsky.app)">
+                                    <button type="button" id="btn-bsky" class="btn-secondary">Buscar</button>
+                                </div>
+                                <span id="bsky-status" class="status-msg"></span>
+                            </div>
+                            <div class="input-group">
+                                <label>Elige un Avatar</label>
+                                <div id="avatar-selector" class="avatar-grid">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="input-name">Nombre a mostrar</label>
+                                <input type="text" id="input-name" placeholder="Tu Nombre">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="input-bio">Biografía</label>
+                                <textarea id="input-bio" rows="3" placeholder="Cuéntanos sobre ti..."></textarea>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="input-color">Color de banner</label>
+                                <input type="color" id="input-color" value="#3b82f6">
+                            </div>
+
+                            <button type="submit" class="btn-primary">Guardar Tarjeta</button>
+                        </form>
+                    </section>
+                    <section class="card-container">
+                        <article id="profile-card" class="card">
+                            <div class="card-header" id="preview-header"></div>
+                            <span id="badge-preview" class="badge" hidden></span>
+                            <img id="avatar-preview" src="src/assets/Avatares0.png" alt="Avatar" class="avatar">
+                            <img id="country-flag" src="" alt="Bandera" class="flag-icon" hidden>
+                            <div class="card-body">
+                                <h3 id="name-preview">Nombre Apellido</h3>
+                                <p id="bio-preview">La biografía aparecerá aquí...</p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+            <div id="view-galeria" class="view-module">
+                 <div class="gallery-toolbar">
+                    <h2>Galería de Perfiles</h2>
+                    <input type="text" id="gallery-search" placeholder="Buscar por nombre...">
+                </div>
+                <p id="gallery-empty" class="gallery-empty" hidden>Aún no hay perfiles guardados.</p>
+                <div id="gallery-grid" class="gallery-grid"></div>
+            </div>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
